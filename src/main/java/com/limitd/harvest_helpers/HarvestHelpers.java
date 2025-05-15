@@ -1,6 +1,7 @@
 package com.limitd.harvest_helpers;
 
 import com.limitd.harvest_helpers.Item.ModItems;
+import com.limitd.harvest_helpers.block.ModBlocks;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
@@ -20,6 +21,7 @@ public class HarvestHelpers implements ModInitializer {
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
 		ModItems.registerModItems();
+		ModBlocks.registerModBlocks();
 		LOGGER.info("Hello Fabric world!");
 	}
 }

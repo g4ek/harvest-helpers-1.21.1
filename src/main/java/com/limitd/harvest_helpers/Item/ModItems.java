@@ -10,6 +10,7 @@ import net.minecraft.util.Identifier;
 public class ModItems
 {
         public static final Item ORANGE_SAPLING = registerItem("orange_sapling", new Item(new Item.Settings()));
+        public static final Item LEMON_SAPLING = registerItem("lemon_sapling", new Item(new Item.Settings()));
 
         private static Item registerItem(String name, Item item)
         {
@@ -19,8 +20,9 @@ public class ModItems
         {
                 HarvestHelpers.LOGGER.info("registering Mod items for " + HarvestHelpers.MOD_ID);
 
-                ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
+                ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> {
                         entries.add(ORANGE_SAPLING);
+                        entries.add(LEMON_SAPLING);
                 });
         }
 }
