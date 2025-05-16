@@ -1,4 +1,6 @@
 {
-  "item.harvest_helpers.orange_sapling": "Orange Sapling",
-  "item.harvest_helpers.lemon_sapling": "Lemon Sapling"
+  "block.harvest_helpers.orange_sapling_block": "Orange Sapling",
+  "block.harvest_helpers.orange_leaves_block": "Orange Leaves",
+  "block.harvest_helpers.lemon_sapling": "Lemon Sapling",
+  "item.harvest_helpers.orange": "Orange"
 }
