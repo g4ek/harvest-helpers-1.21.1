@@ -1,6 +1,7 @@
 package com.limitd.harvest_helpers.Item.custom;
 
 import net.minecraft.block.BlockState;
+import net.minecraft.block.CropBlock;
 import net.minecraft.block.Fertilizable;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -19,7 +20,6 @@ public class FertilizerItem extends Item {
     public ActionResult useOnBlock(ItemUsageContext context) {
         World world = context.getWorld();
         BlockPos pos = context.getBlockPos();
-        BlockPos pos2 = pos.offset(context.getSide());
         if (useOnFertilizable(context.getStack(), world, pos)) {
             if (!world.isClient) {
                 context.getPlayer().emitGameEvent(GameEvent.ITEM_INTERACT_FINISH);
@@ -33,10 +33,10 @@ public class FertilizerItem extends Item {
     // method for using fertilizer on crop
     public static boolean useOnFertilizable(ItemStack stack, World world, BlockPos pos) {
         BlockState blockState = world.getBlockState(pos);
-        if (blockState.getBlock() instanceof Fertilizable fertilizable && fertilizable.isFertilizable(world, pos, blockState)) {
+        if (blockState.getBlock() instanceof CropBlock cropBlock && cropBlock.isFertilizable(world, pos, blockState)) {
             if (world instanceof ServerWorld) {
-                if (fertilizable.canGrow(world, world.random, pos, blockState)) {
-                    fertilizable.grow((ServerWorld)world, world.random, pos, blockState);
+                if (cropBlock.canGrow(world, world.random, pos, blockState)) {
+                    cropBlock.grow((ServerWorld)world, world.random, pos, blockState);
                 }
 
                 stack.decrement(1);
