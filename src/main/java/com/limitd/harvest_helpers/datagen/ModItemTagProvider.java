@@ -17,6 +17,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup)
     {
         getOrCreateTagBuilder(ModTags.Items.TRANSFORMABLE_ITEMS)
-                .add(ModItems.ORANGE);
+                .add(ModItems.ORANGE)
+                .add(ModItems.LEMON)
+                .add(ModItems.PEACH);
     }
 }

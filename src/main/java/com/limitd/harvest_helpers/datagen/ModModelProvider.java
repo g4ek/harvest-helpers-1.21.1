@@ -19,11 +19,19 @@ public class ModModelProvider extends FabricModelProvider {
     {
         blockStateModelGenerator.registerSingleton(ModBlocks.ORANGE_LEAVES_BLOCK, TexturedModel.LEAVES);
         blockStateModelGenerator.registerTintableCrossBlockState(ModBlocks.ORANGE_SAPLING_BLOCK, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerSingleton(ModBlocks.LEMON_LEAVES_BLOCK, TexturedModel.LEAVES);
+        blockStateModelGenerator.registerTintableCrossBlockState(ModBlocks.LEMON_SAPLING_BLOCK, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerSingleton(ModBlocks.PEACH_LEAVES_BLOCK, TexturedModel.LEAVES);
+        blockStateModelGenerator.registerTintableCrossBlockState(ModBlocks.PEACH_SAPLING_BLOCK, BlockStateModelGenerator.TintType.NOT_TINTED);
     }
 
     public void generateItemModels(ItemModelGenerator itemModelGenerator)
     {
         itemModelGenerator.register(ModBlocks.ORANGE_SAPLING_BLOCK.asItem(), Models.GENERATED);
         itemModelGenerator.register(ModItems.ORANGE, Models.GENERATED);
+        itemModelGenerator.register(ModBlocks.LEMON_SAPLING_BLOCK.asItem(), Models.GENERATED);
+        itemModelGenerator.register(ModItems.LEMON, Models.GENERATED);
+        itemModelGenerator.register(ModBlocks.PEACH_SAPLING_BLOCK.asItem(), Models.GENERATED);
+        itemModelGenerator.register(ModItems.PEACH, Models.GENERATED);
     }
 }

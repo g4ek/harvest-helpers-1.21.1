@@ -11,6 +11,8 @@ import net.minecraft.util.Identifier;
 public class ModItems
 {
         public static final Item ORANGE = registerItem("orange", new Item(new Item.Settings().food(ModFoodComponents.ORANGE)));
+        public static final Item LEMON = registerItem("lemon", new Item(new Item.Settings().food(ModFoodComponents.LEMON)));
+        public static final Item PEACH = registerItem("peach", new Item(new Item.Settings().food(ModFoodComponents.PEACH)));
 
         private static Item registerItem(String name, Item item)
         {
@@ -22,6 +24,8 @@ public class ModItems
                 ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(entries ->
                 {
                    entries.add(ORANGE);
+                   entries.add(LEMON);
+                   entries.add(PEACH);
                 });
         }
 }

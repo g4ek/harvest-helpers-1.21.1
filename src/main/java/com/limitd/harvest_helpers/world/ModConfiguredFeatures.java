@@ -20,17 +20,38 @@ import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
 public class ModConfiguredFeatures {
 
     public static final RegistryKey<ConfiguredFeature<?, ?>> ORANGE_KEY = registerKey("orange_tree");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> LEMON_KEY = registerKey("lemon_tree");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> PEACH_KEY = registerKey("peach_tree");
 
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context)
     {
         register(context, ORANGE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(Blocks.OAK_LOG),
-                new StraightTrunkPlacer(2, 2, 2),
+                new StraightTrunkPlacer(3, 3, 4), // baseHeight, 1stRandomH, 2ndRandomH
 
                 BlockStateProvider.of(ModBlocks.ORANGE_LEAVES_BLOCK),
-                new BlobFoliagePlacer(ConstantIntProvider.create(4), ConstantIntProvider.create(1), 2),
+                new BlobFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(0), 3),
 
-                new TwoLayersFeatureSize(1, 0, 2)).build());
+                new TwoLayersFeatureSize(1, 0, 1)).build());
+
+        register(context, LEMON_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(Blocks.OAK_LOG),
+                new StraightTrunkPlacer(3, 3, 4), // baseHeight, 1stRandomH, 2ndRandomH
+
+                BlockStateProvider.of(ModBlocks.LEMON_LEAVES_BLOCK),
+                new BlobFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(0), 3),
+
+                new TwoLayersFeatureSize(1, 0, 1)).build());
+
+        register(context, PEACH_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(Blocks.OAK_LOG),
+                new StraightTrunkPlacer(3, 3, 4), // baseHeight, 1stRandomH, 2ndRandomH
+
+                BlockStateProvider.of(ModBlocks.PEACH_LEAVES_BLOCK),
+                new BlobFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(0), 3),
+
+                new TwoLayersFeatureSize(1, 0, 1)).build());
+
     }
 
 

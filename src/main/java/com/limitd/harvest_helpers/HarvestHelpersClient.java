@@ -10,6 +10,8 @@ public class HarvestHelpersClient implements ClientModInitializer {
     public void onInitializeClient()
     {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ORANGE_SAPLING_BLOCK, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.LEMON_SAPLING_BLOCK, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PEACH_SAPLING_BLOCK, RenderLayer.getCutout());
 
     }
 }
