@@ -2,6 +2,7 @@ package com.limitd.harvest_helpers;
 
 import com.limitd.harvest_helpers.datagen.*;
 import com.limitd.harvest_helpers.world.ModConfiguredFeatures;
+import com.limitd.harvest_helpers.world.ModPlacedFeatures;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.registry.RegistryBuilder;
@@ -23,5 +24,6 @@ public class HarvestHelpersDataGenerator implements DataGeneratorEntrypoint {
 	public void buildRegistry(RegistryBuilder registryBuilder) {
 
 		registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, ModConfiguredFeatures::bootstrap);
+		registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, ModPlacedFeatures::bootstrap);
 	}
 }

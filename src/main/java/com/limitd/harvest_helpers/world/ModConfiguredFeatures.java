@@ -27,7 +27,8 @@ public class ModConfiguredFeatures {
     {
         register(context, ORANGE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(Blocks.OAK_LOG),
-                new StraightTrunkPlacer(3, 3, 4), // baseHeight, 1stRandomH, 2ndRandomH
+                new StraightTrunkPlacer(6
+                        , 0, 0), // baseHeight, 1stRandomH, 2ndRandomH
 
                 BlockStateProvider.of(ModBlocks.ORANGE_LEAVES_BLOCK),
                 new BlobFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(0), 3),
@@ -36,7 +37,7 @@ public class ModConfiguredFeatures {
 
         register(context, LEMON_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(Blocks.OAK_LOG),
-                new StraightTrunkPlacer(3, 3, 4), // baseHeight, 1stRandomH, 2ndRandomH
+                new StraightTrunkPlacer(6, 0, 0), // baseHeight, 1stRandomH, 2ndRandomH
 
                 BlockStateProvider.of(ModBlocks.LEMON_LEAVES_BLOCK),
                 new BlobFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(0), 3),
@@ -45,7 +46,7 @@ public class ModConfiguredFeatures {
 
         register(context, PEACH_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(Blocks.OAK_LOG),
-                new StraightTrunkPlacer(3, 3, 4), // baseHeight, 1stRandomH, 2ndRandomH
+                new StraightTrunkPlacer(6, 0, 0), // baseHeight, 1stRandomH, 2ndRandomH
 
                 BlockStateProvider.of(ModBlocks.PEACH_LEAVES_BLOCK),
                 new BlobFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(0), 3),
