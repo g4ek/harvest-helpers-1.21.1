@@ -12,9 +12,9 @@
     }
   },
   "pattern": [
-    "BBB",
-    "DRD",
-    "DDD"
+    "RBR",
+    "BDB",
+    "RBR"
   ],
   "result": {
     "count": 1,

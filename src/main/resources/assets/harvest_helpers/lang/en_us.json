@@ -1,3 +1,4 @@
 {
-  "item.harvest_helpers.fertilizer": "Fertilizer"
+  "item.harvest_helpers.fertilizer": "Fertilizer",
+  "block.harvest_helpers.fertilized_farmland": "Fertilized Farmland"
 }

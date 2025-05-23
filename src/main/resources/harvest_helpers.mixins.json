@@ -3,9 +3,7 @@
 	"package": "com.limitd.harvest_helpers.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
-		"ExampleMixin",
-		"FarmlandFertilizedGrowthModifier",
-		"FertilizedCropModifier"
+		"FertilizedFarmlandInjection"
 	],
 	"injectors": {
 		"defaultRequire": 1
