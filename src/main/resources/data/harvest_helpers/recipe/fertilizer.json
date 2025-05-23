@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key":  {
+    "B": {
+      "item": "minecraft:bone_meal"
+    },
+    "D": {
+      "item": "minecraft:dried_kelp"
+    },
+    "R": {
+      "item": "minecraft:rotten_flesh"
+    }
+  },
+  "pattern": [
+    "RBR",
+    "BDB",
+    "RBR"
+  ],
+  "result": {
+    "count": 1,
+    "id": "harvest_helpers:fertilizer"
+  }
+}

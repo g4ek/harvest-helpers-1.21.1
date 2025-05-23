@@ -1,6 +1,8 @@
 package com.limitd.harvest_helpers.block;
 
 import com.limitd.harvest_helpers.HarvestHelpers;
+import com.limitd.harvest_helpers.block.custom.FertilizedFarmlandBlock;
+
 import com.limitd.harvest_helpers.block.custom.SpecialSaplingBlock;
 import com.limitd.harvest_helpers.world.tree.ModSaplingGenerators;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -10,13 +12,29 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 
 public class ModBlocks {
 
-    public static final Block ORANGE_SAPLING_BLOCK = registerBlock("orange_sapling_block", new SpecialSaplingBlock(ModSaplingGenerators.ORANGETREE, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
-    public static final Block LEMON_SAPLING_BLOCK = registerBlock("lemon_sapling_block", new SpecialSaplingBlock(ModSaplingGenerators.LEMONTREE, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
-    public static final Block PEACH_SAPLING_BLOCK = registerBlock("peach_sapling_block", new SpecialSaplingBlock(ModSaplingGenerators.PEACHTREE, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
+    public static final Block FERTILIZED_FARMLAND = registerBlock("fertilized_farmland",
+            new FertilizedFarmlandBlock(
+                    AbstractBlock.Settings.create()
+                            .mapColor(MapColor.DIRT_BROWN)
+                            .ticksRandomly()
+                            .strength(0.6F)
+                            .sounds(BlockSoundGroup.GRAVEL)
+                            .blockVision(Blocks::always)
+                            .suffocates(Blocks::always)
+            )
+    );
+
+    public static final Block ORANGE_SAPLING_BLOCK = registerBlock("orange_sapling_block", 
+            new SpecialSaplingBlock(ModSaplingGenerators.ORANGETREE, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
+    public static final Block LEMON_SAPLING_BLOCK = registerBlock("lemon_sapling_block", 
+            new SpecialSaplingBlock(ModSaplingGenerators.LEMONTREE, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
+    public static final Block PEACH_SAPLING_BLOCK = registerBlock("peach_sapling_block", 
+            new SpecialSaplingBlock(ModSaplingGenerators.PEACHTREE, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
 
 
     public static final Block ORANGE_LEAVES_BLOCK = registerBlock("orange_leaves_block",
@@ -45,6 +63,8 @@ public class ModBlocks {
         HarvestHelpers.LOGGER.info("Registering Mod Blocks for " + HarvestHelpers.MOD_ID);
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> {
+            entries.addAfter(Blocks.FARMLAND, ModBlocks.FERTILIZED_FARMLAND);
+          
             entries.add(ModBlocks.ORANGE_SAPLING_BLOCK);
             entries.add(ModBlocks.LEMON_SAPLING_BLOCK);
             entries.add(ModBlocks.PEACH_SAPLING_BLOCK);
@@ -52,6 +72,7 @@ public class ModBlocks {
             entries.add(ModBlocks.ORANGE_LEAVES_BLOCK);
             entries.add(ModBlocks.LEMON_LEAVES_BLOCK);
             entries.add(ModBlocks.PEACH_LEAVES_BLOCK);
-                 });
+            
+         });
     }
 }
