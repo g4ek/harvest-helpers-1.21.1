@@ -2,6 +2,8 @@ package com.limitd.harvest_helpers;
 
 import com.limitd.harvest_helpers.Item.ModItems;
 import com.limitd.harvest_helpers.block.ModBlocks;
+//import com.limitd.harvest_helpers.potion.ModPotions;
+import com.limitd.harvest_helpers.world.gen.ModWorldGeneration;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
@@ -22,6 +24,9 @@ public class HarvestHelpers implements ModInitializer {
 		// Proceed with mild caution.
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
+
+//		ModPotions.registerPotions();
+		ModWorldGeneration.generateModWorldGen();
 		LOGGER.info("Hello Fabric world!");
 	}
 }

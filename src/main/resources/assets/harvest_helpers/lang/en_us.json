@@ -1,4 +1,12 @@
 {
-  "item.harvest_helpers.orange_sapling": "Orange Sapling",
-  "item.harvest_helpers.lemon_sapling": "Lemon Sapling"
+  "block.harvest_helpers.orange_sapling_block": "Orange Sapling",
+  "block.harvest_helpers.orange_leaves_block": "Orange Leaves",
+  "block.harvest_helpers.lemon_sapling_block": "Lemon Sapling",
+  "block.harvest_helpers.lemon_leaves_block": "Lemon Leaves",
+  "block.harvest_helpers.peach_sapling_block": "Peach Sapling",
+  "block.harvest_helpers.peach_leaves_block": "Peach Leaves",
+
+  "item.harvest_helpers.orange": "Orange",
+  "item.harvest_helpers.lemon": "Lemon",
+  "item.harvest_helpers.peach": "Peach"
 }
