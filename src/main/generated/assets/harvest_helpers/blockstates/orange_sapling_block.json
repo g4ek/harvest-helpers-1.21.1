@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "harvest_helpers:block/orange_sapling_block"
+    }
+  }
+}

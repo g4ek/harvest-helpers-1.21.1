@@ -17,7 +17,20 @@ import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
 
+/*
+    Initial setup from tutorial: https://youtu.be/Sp0uWsWa2Rg?list=PLKGarocXCE1H_HxOYihQMq0mlpqiUJj4L, which initialized bootstrap, registerKey, and register
+
+    Made by Jordan:
+
+    ModConfiguredFeatures is a class that sets up how certain structures are generated. For trees specifically, they have 3 different methods
+    StraightTrunkPlacer is a method that establishes how tall tree trunks are. Using blockStateProvider you can set what block trunks are made of. RandomHeights are set to 0, since we want to only generate 6 block tall trunks
+    BlobFoliagePlacer is a method that takes in radius, offset from the trunk of the tree, and the height of the foliage.
+    TwoLayersFeaturesSize allows trees to grow with its tapered structure (thicker foliage at bottom, thinner at top)
+
+ */
+
 public class ModConfiguredFeatures {
+
 
     public static final RegistryKey<ConfiguredFeature<?, ?>> ORANGE_KEY = registerKey("orange_tree");
     public static final RegistryKey<ConfiguredFeature<?, ?>> LEMON_KEY = registerKey("lemon_tree");
@@ -26,31 +39,18 @@ public class ModConfiguredFeatures {
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context)
     {
         register(context, ORANGE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
-                BlockStateProvider.of(Blocks.OAK_LOG),
-                new StraightTrunkPlacer(6
-                        , 0, 0), // baseHeight, 1stRandomH, 2ndRandomH
-
-                BlockStateProvider.of(ModBlocks.ORANGE_LEAVES_BLOCK),
-                new BlobFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(0), 3),
-
+                BlockStateProvider.of(Blocks.OAK_LOG), new StraightTrunkPlacer(6, 0, 0), // baseHeight, 1stRandomH, 2ndRandomH
+                BlockStateProvider.of(ModBlocks.ORANGE_LEAVES_BLOCK), new BlobFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(0), 3),
                 new TwoLayersFeatureSize(1, 0, 1)).build());
 
         register(context, LEMON_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
-                BlockStateProvider.of(Blocks.OAK_LOG),
-                new StraightTrunkPlacer(6, 0, 0), // baseHeight, 1stRandomH, 2ndRandomH
-
-                BlockStateProvider.of(ModBlocks.LEMON_LEAVES_BLOCK),
-                new BlobFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(0), 3),
-
+                BlockStateProvider.of(Blocks.OAK_LOG), new StraightTrunkPlacer(6, 0, 0), // baseHeight, 1stRandomH, 2ndRandomH
+                BlockStateProvider.of(ModBlocks.LEMON_LEAVES_BLOCK), new BlobFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(0), 3),
                 new TwoLayersFeatureSize(1, 0, 1)).build());
 
         register(context, PEACH_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
-                BlockStateProvider.of(Blocks.OAK_LOG),
-                new StraightTrunkPlacer(6, 0, 0), // baseHeight, 1stRandomH, 2ndRandomH
-
-                BlockStateProvider.of(ModBlocks.PEACH_LEAVES_BLOCK),
-                new BlobFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(0), 3),
-
+                BlockStateProvider.of(Blocks.OAK_LOG), new StraightTrunkPlacer(6, 0, 0), // baseHeight, 1stRandomH, 2ndRandomH
+                BlockStateProvider.of(ModBlocks.PEACH_LEAVES_BLOCK), new BlobFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(0), 3),
                 new TwoLayersFeatureSize(1, 0, 1)).build());
 
     }

@@ -1,5 +1,12 @@
 package com.limitd.harvest_helpers;
 
+// tutorial: https://www.youtube.com/watch?v=ELHvhvuGF3U&t=985s
+/*
+
+    Used a tutorial to intialize datagen. Datagen automatically forms the json files required for all blocks/items and their specific properties,
+    and specifically their textures/models. The tutorial was used to figure out how to structure the files and provided as boilerplate for datagen.
+
+*/
 import com.limitd.harvest_helpers.datagen.*;
 import com.limitd.harvest_helpers.world.ModConfiguredFeatures;
 import com.limitd.harvest_helpers.world.ModPlacedFeatures;

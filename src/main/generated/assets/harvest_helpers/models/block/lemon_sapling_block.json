@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "harvest_helpers:block/lemon_sapling_block"
+  }
+}

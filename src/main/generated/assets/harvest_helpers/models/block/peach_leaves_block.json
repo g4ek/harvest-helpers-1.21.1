@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "harvest_helpers:block/peach_leaves_block"
+  }
+}

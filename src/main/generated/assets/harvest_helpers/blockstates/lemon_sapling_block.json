@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "harvest_helpers:block/lemon_sapling_block"
+    }
+  }
+}

@@ -14,6 +14,7 @@ public class ModItems
 {
         public static final Item FERTILIZER = registerItem("fertilizer", new FertilizerItem(new Item.Settings()));
 
+        // gives the fruits the settings established by ModFoodComponents
         public static final Item ORANGE = registerItem("orange", new Item(new Item.Settings().food(ModFoodComponents.ORANGE)));
         public static final Item LEMON = registerItem("lemon", new Item(new Item.Settings().food(ModFoodComponents.LEMON)));
         public static final Item PEACH = registerItem("peach", new Item(new Item.Settings().food(ModFoodComponents.PEACH)));
@@ -26,11 +27,17 @@ public class ModItems
         {
                 HarvestHelpers.LOGGER.info("Registering Mod Items for " + HarvestHelpers.MOD_ID);
 
+            // sets the category for Fertilizer as 'Tools', placing it after bone_meal in creative menus
                 ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries -> {
                    entries.addAfter(Items.BONE_MEAL, FERTILIZER);
-                   entries.add(ORANGE);
-                   entries.add(LEMON);
-                   entries.add(PEACH);
                 });
+
+            // Sets the category for fruits under 'Food and Drink'
+            ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(entries -> {
+                entries.add(ORANGE);
+                entries.add(LEMON);
+                entries.add(PEACH);
+            });
+
         }
 }

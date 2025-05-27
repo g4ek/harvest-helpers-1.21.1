@@ -1,5 +1,15 @@
 package com.limitd.harvest_helpers.world;
 
+/*
+    SHOULD NOT BE GRADED (ModTreeGeneration, ModWorldGeneration, ModPlacedFeatures)
+
+    Written by Jordan:
+    While this was a stretch goal, I was unable to figure out biome generation myself, however I felt like it made sense to add it in the context of the mod,
+    so I used a tutorial to implement this class. https://www.youtube.com/watch?v=ykHweIW67mk
+    These 3 classes allow trees to be generated in 3 specific biomes, Forests, Sunflower Plains, and Flower Forests
+
+ */
+
 import com.limitd.harvest_helpers.HarvestHelpers;
 import com.limitd.harvest_helpers.block.ModBlocks;
 import net.minecraft.registry.Registerable;
@@ -7,14 +17,11 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.Identifier;
-import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.feature.*;
-import net.minecraft.world.gen.placementmodifier.HeightRangePlacementModifier;
 import net.minecraft.world.gen.placementmodifier.PlacementModifier;
 
 import java.util.List;
 
-import static com.limitd.harvest_helpers.world.ModConfiguredFeatures.registerKey;
 
 public class ModPlacedFeatures {
 

@@ -1,5 +1,13 @@
 package com.limitd.harvest_helpers.block;
 
+/*
+    Used tutorial as starting point: https://www.youtube.com/watch?v=9JpBpka5oBs
+
+    ModBlocks initializes the blocks used in the mod. Blocks are able to be given specific properties or use similar
+    settings compared to other vanilla blocks.
+
+ */
+
 import com.limitd.harvest_helpers.HarvestHelpers;
 import com.limitd.harvest_helpers.block.custom.FertilizedFarmlandBlock;
 
@@ -29,13 +37,16 @@ public class ModBlocks {
             )
     );
 
+    /*
+    Fruit saplings are established with modified randomTick() to increase growth time, uses its modified configuredFeatures,
+    and copies settings from oak_saplings.
+     */
     public static final Block ORANGE_SAPLING_BLOCK = registerBlock("orange_sapling_block", 
             new SpecialSaplingBlock(ModSaplingGenerators.ORANGETREE, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
     public static final Block LEMON_SAPLING_BLOCK = registerBlock("lemon_sapling_block", 
             new SpecialSaplingBlock(ModSaplingGenerators.LEMONTREE, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
     public static final Block PEACH_SAPLING_BLOCK = registerBlock("peach_sapling_block", 
             new SpecialSaplingBlock(ModSaplingGenerators.PEACHTREE, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
-
 
     public static final Block ORANGE_LEAVES_BLOCK = registerBlock("orange_leaves_block",
             new Block(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES)));
@@ -58,6 +69,7 @@ public class ModBlocks {
                 new BlockItem(block, new Item.Settings()));
     }
 
+    // This registers all blocks under the 'Building Blocks' category, which can be found in a creative menu
     public static void registerModBlocks()
     {
         HarvestHelpers.LOGGER.info("Registering Mod Blocks for " + HarvestHelpers.MOD_ID);
