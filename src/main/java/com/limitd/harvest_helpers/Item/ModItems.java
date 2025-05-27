@@ -22,6 +22,7 @@ public class ModItems
         {
                 return Registry.register(Registries.ITEM, Identifier.of(HarvestHelpers.MOD_ID, name), item);
         }
+
         public static void registerModItems()
         {
                 HarvestHelpers.LOGGER.info("Registering Mod Items for " + HarvestHelpers.MOD_ID);

@@ -1,11 +1,14 @@
+/*
+   * Implemented by Samit
+   * This is the code for the Fertilizer Item. It uses a helper method, useOnFertilizable, to apply fertilizer to farmland blocks only.
+ */
+
 package com.limitd.harvest_helpers.Item.custom;
 
 import com.limitd.harvest_helpers.block.ModBlocks;
 import com.limitd.harvest_helpers.block.custom.FertilizedFarmlandBlock;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.CropBlock;
 import net.minecraft.block.FarmlandBlock;
-import net.minecraft.block.Fertilizable;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
@@ -22,6 +25,11 @@ public class FertilizerItem extends Item {
         super(settings);
     }
 
+    /*
+        * This method is called when the fertilizer item is used on a block.
+        * It checks if the block is farmland and applies fertilizer if possible,
+        * reporting success or failure to the server.
+    */
     @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
         World world = context.getWorld();
@@ -37,7 +45,14 @@ public class FertilizerItem extends Item {
         }
     }
 
-    // method for using fertilizer on crop
+    /*
+        * This method checks if the block at the given position where the fertilizer
+        * is used is a farmland block. If it is, it applies the fertilizer by changing the
+        * block state to FertilizedFarmlandBlock with maximum fertilizer count. If the block
+        * is already fully fertilized it does nothing and returns false. If the block is
+        * fertilized but not fully, it consumes a fertilizer item and updates the block state
+        * to one with the maximum fertilizer count.
+    */
     public static boolean useOnFertilizable(ItemStack stack, World world, BlockPos pos) {
         BlockState blockState = world.getBlockState(pos);
         if (blockState.getBlock() instanceof FarmlandBlock) {
