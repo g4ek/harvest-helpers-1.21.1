@@ -1,6 +1,9 @@
 /*
    * Implemented by Samit
    * This is the code for the Fertilizer Item. It uses a helper method, useOnFertilizable, to apply fertilizer to farmland blocks only.
+   *
+   * Boilerplate code based on: https://www.youtube.com/watch?v=bVho57E_1hU
+   * Used this video to set up, but logical implementation is purely my own.
  */
 
 package com.limitd.harvest_helpers.Item.custom;
@@ -28,7 +31,9 @@ public class FertilizerItem extends Item {
     /*
         * This method is called when the fertilizer item is used on a block.
         * It checks if the block is farmland and applies fertilizer if possible,
-        * reporting success or failure to the server.
+        * reporting success or failure to the server. Referenced implementation of
+        * bone meal item in Minecraft for general structure of the method (usages
+        * are very different though).
     */
     @Override
     public ActionResult useOnBlock(ItemUsageContext context) {

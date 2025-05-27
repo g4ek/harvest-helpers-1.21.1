@@ -25,6 +25,7 @@ import net.minecraft.util.Identifier;
 
 public class ModBlocks {
 
+    // registers fertilized farmland with the same properties as farmland, but with a new fertilizer count property
     public static final Block FERTILIZED_FARMLAND = registerBlock("fertilized_farmland",
             new FertilizedFarmlandBlock(
                     AbstractBlock.Settings.create()
@@ -75,6 +76,7 @@ public class ModBlocks {
         HarvestHelpers.LOGGER.info("Registering Mod Blocks for " + HarvestHelpers.MOD_ID);
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> {
+            // adds fertilized farmland to the building blocks category after farmland block
             entries.addAfter(Blocks.FARMLAND, ModBlocks.FERTILIZED_FARMLAND);
           
             entries.add(ModBlocks.ORANGE_SAPLING_BLOCK);

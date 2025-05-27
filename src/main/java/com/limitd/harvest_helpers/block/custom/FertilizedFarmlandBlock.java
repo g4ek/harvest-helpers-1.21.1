@@ -4,6 +4,14 @@
     * Currently, the chance of fertilized farmland affecting crop growth is set to 50%, and
     * the maximum amount of times the block can fertilize a crop growth is set to 15.
     * To see how the block affects crops, see FertilizedFarmlandInjection.java in the mixin package.
+    *
+    * Used this video to set up the block: https://www.youtube.com/watch?v=Ukb3nGFFW1U&t=
+    *
+    * Fertilized Soil Texture:
+    * Normal: https://static.wikia.nocookie.net/cultivated-tech/images/c/c7/IndustrialSoil-1.png/revision/latest?cb=20180620194151
+    * Hydrated:
+    * https://static.wikia.nocookie.net/cultivated-tech/images/0/06/HydratedIndustrialSoil-0.png/revision/latest?cb=20180620194119
+    * (same design, extracted from a .jar of the mod itself)
  */
 
 package com.limitd.harvest_helpers.block.custom;

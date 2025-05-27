@@ -4,6 +4,8 @@
     * with an increased chance of growth when the block is fertilized. A mixin is essentially
     * a way to modify the behavior of existing classes in Minecraft without directly changing the
     * classes themselves by injecting code into specific methods at runtime.
+    *
+    * Used fabric wiki for reference and learning how to use mixins: https://wiki.fabricmc.net/tutorial:mixin_introduction
 */
 
 package com.limitd.harvest_helpers.mixin;
