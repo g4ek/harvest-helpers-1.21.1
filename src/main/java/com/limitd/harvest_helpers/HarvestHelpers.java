@@ -2,7 +2,6 @@ package com.limitd.harvest_helpers;
 
 import com.limitd.harvest_helpers.Item.ModItems;
 import com.limitd.harvest_helpers.block.ModBlocks;
-//import com.limitd.harvest_helpers.potion.ModPotions;
 import com.limitd.harvest_helpers.world.gen.ModWorldGeneration;
 import net.fabricmc.api.ModInitializer;
 

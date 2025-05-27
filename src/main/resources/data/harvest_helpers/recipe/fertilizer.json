@@ -12,9 +12,9 @@
     }
   },
   "pattern": [
-    "RBR",
-    "BDB",
-    "RBR"
+    "DBD",
+    "BRB",
+    "DBD"
   ],
   "result": {
     "count": 1,
