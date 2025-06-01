@@ -1,12 +1,17 @@
-/*
-    * Implemented by Samit
-    * This is a mixin for the CropBlock class that allows crops to grow on Fertilized Farmland
-    * with an increased chance of growth when the block is fertilized. A mixin is essentially
-    * a way to modify the behavior of existing classes in Minecraft without directly changing the
-    * classes themselves by injecting code into specific methods at runtime.
-    *
-    * Used fabric wiki for reference and learning how to use mixins: https://wiki.fabricmc.net/tutorial:mixin_introduction
-*/
+/**
+ * Mixin for the {@link net.minecraft.block.CropBlock} class to enable and enhance crop growth on Fertilized Farmland.
+ * <p>
+ * This mixin allows crops to be planted and grow on custom Fertilized Farmland blocks, providing an increased chance
+ * of growth when the underlying block is fertilized. It injects logic into the crop planting and random tick methods
+ * to support the custom fertilizer mechanics.
+ * </p>
+ *
+ * <p>
+ * Reference: <a href="https://wiki.fabricmc.net/tutorial:mixin_introduction">Fabric Wiki: Mixin Introduction</a>
+ * </p>
+ *
+ * @author Samit
+ */
 
 package com.limitd.harvest_helpers.mixin;
 
@@ -25,36 +30,44 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-// declares this class as a mixin of CropBlock.class
+
 @Mixin(CropBlock.class)
 public class FertilizedFarmlandInjection {
 
-    /*
-        * This method is injected into the canPlantOnTop method of CropBlock.
-        * It modifies the return value of the method to allow crops to be planted,
-        * so the cancellable parameter is set to true to indicate that the method's
-        * return value can be changed. I changed the return value to true using the
-        * CallbackInfoReturnable parameter.
-        * It checks if the block below is Fertilized Farmland or regular Farmland,
-        * and if so, allows crops to be planted on it.
-        * This is necessary for crops to grow on Fertilized Farmland.
-     */
+    /**
+          * Injects into the {@code canPlantOnTop} method of {@link CropBlock} to allow crops to be planted
+          * on custom Fertilized Farmland blocks in addition to regular Farmland.
+          * <p>
+          * Sets the return value to {@code true} if the block below is Fertilized Farmland or regular Farmland,
+          * enabling crop planting on these blocks.
+          * </p>
+          *
+          * @param floor      the block state below the crop
+          * @param world      the block view
+          * @param pos        the position of the crop
+          * @param returnVal  the callback to set the return value
+          */
     @Inject(method = "canPlantOnTop", at = @At("HEAD"), cancellable = true)
     private void canPlant(BlockState floor, BlockView world, BlockPos pos, CallbackInfoReturnable<Boolean> returnVal) {
         if (floor.isOf(ModBlocks.FERTILIZED_FARMLAND) || floor.isOf(Blocks.FARMLAND))
             returnVal.setReturnValue(true);
     }
 
-    /*
-        * This method is injected at the end of the randomTick method of CropBlock,
-        * which is called every time the block receives a random tick update.
-        * It modifies the behavior of crop growth when the block is fertilized.
-        * It checks if the block below is Fertilized Farmland, and if so, allows crops
-        * to grow with an increased chance when the light level is sufficient.
-        * If the crop grows, it decreases the fertilizer count on the Fertilized Farmland block.
-        * If the fertilizer count reaches 0, it changes the block back to regular Farmland.
-        *
-     */
+    /**
+         * Injects additional crop growth logic into the {@code randomTick} method of {@link CropBlock}.
+         * <p>
+         * When a crop receives a random tick, this method checks if the block below is a {@link FertilizedFarmlandBlock}.
+         * If so, and the crop is not mature and the light level is sufficient, it increases the chance for the crop to grow.
+         * If the crop grows, the fertilizer count on the farmland is decreased. When the fertilizer count reaches zero,
+         * the block is converted back to regular farmland.
+         * </p>
+         *
+         * @param state  the current block state of the crop
+         * @param world  the server world
+         * @param pos    the position of the crop block
+         * @param random the random number generator
+         * @param ci     the callback info
+         */
     @Inject(method = "randomTick", at = @At("RETURN"))
     private void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random, CallbackInfo ci) {
         BlockPos soilPos = pos.down();

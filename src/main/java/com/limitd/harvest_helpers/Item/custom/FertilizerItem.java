@@ -1,9 +1,16 @@
-/*
-   * Implemented by Samit
-   * This is the code for the Fertilizer Item. It uses a helper method, useOnFertilizable, to apply fertilizer to farmland blocks only.
-   *
-   * Boilerplate code based on: https://www.youtube.com/watch?v=bVho57E_1hU
-   * Used this video to set up, but logical implementation is purely my own.
+/**
+ * Fertilizer item for applying fertilizer to farmland blocks.
+ * <p>
+ * Uses the {@link #useOnFertilizable(ItemStack, World, BlockPos)} helper method to apply fertilizer only to farmland blocks.
+ * </p>
+ *
+ * <p>
+ * <b>Implementation:</b> Boilerplate setup based on: <a href="https://www.youtube.com/watch?v=bVho57E_1hU">YouTube</a>.
+ * Logical implementation is original.
+ * </p>
+ *
+ * @author Samit
+ * @see FertilizedFarmlandBlock
  */
 
 package com.limitd.harvest_helpers.Item.custom;
@@ -28,13 +35,17 @@ public class FertilizerItem extends Item {
         super(settings);
     }
 
-    /*
-        * This method is called when the fertilizer item is used on a block.
-        * It checks if the block is farmland and applies fertilizer if possible,
-        * reporting success or failure to the server. Referenced implementation of
-        * bone meal item in Minecraft for general structure of the method (usages
-        * are very different though).
-    */
+    /**
+     * Called when the fertilizer item is used on a block.
+     * <p>
+     * Checks if the targeted block is farmland and attempts to apply fertilizer.
+     * Reports success or failure to the server. The structure is based on the
+     * bone meal item implementation, but the usage logic is different.
+     * </p>
+     *
+     * @param context the usage context containing world, position, and player information
+     * @return the result of the action, indicating success or pass
+     */
     @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
         World world = context.getWorld();
@@ -50,14 +61,19 @@ public class FertilizerItem extends Item {
         }
     }
 
-    /*
-        * This method checks if the block at the given position where the fertilizer
-        * is used is a farmland block. If it is, it applies the fertilizer by changing the
-        * block state to FertilizedFarmlandBlock with maximum fertilizer count. If the block
-        * is already fully fertilized it does nothing and returns false. If the block is
-        * fertilized but not fully, it consumes a fertilizer item and updates the block state
-        * to one with the maximum fertilizer count.
-    */
+    /**
+         * Attempts to apply fertilizer to the block at the given position.
+         * <p>
+         * If the block is a farmland block, it will be converted to a fertilized farmland block
+         * with the maximum fertilizer count. If the block is already fully fertilized, no action is taken.
+         * If the block is fertilized but not full, it will be refilled to maximum and one fertilizer item is consumed.
+         * </p>
+         *
+         * @param stack the item stack of fertilizer being used
+         * @param world the world in which the action is performed
+         * @param pos the position of the block to fertilize
+         * @return true if fertilizer was applied, false otherwise
+         */
     public static boolean useOnFertilizable(ItemStack stack, World world, BlockPos pos) {
         BlockState blockState = world.getBlockState(pos);
         if (blockState.getBlock() instanceof FarmlandBlock) {

@@ -1,17 +1,28 @@
-/*
-    * Implemented by Samit
-    * This is the code for the Fertilized Farmland Block. It extends FarmlandBlock and adds a new IntProperty for fertilizer count.
-    * Currently, the chance of fertilized farmland affecting crop growth is set to 50%, and
-    * the maximum amount of times the block can fertilize a crop growth is set to 15.
-    * To see how the block affects crops, see FertilizedFarmlandInjection.java in the mixin package.
-    *
-    * Used this video to set up the block: https://www.youtube.com/watch?v=Ukb3nGFFW1U&t=
-    *
-    * Fertilized Soil Texture:
-    * Normal: https://static.wikia.nocookie.net/cultivated-tech/images/c/c7/IndustrialSoil-1.png/revision/latest?cb=20180620194151
-    * Hydrated:
-    * https://static.wikia.nocookie.net/cultivated-tech/images/0/06/HydratedIndustrialSoil-0.png/revision/latest?cb=20180620194119
-    * (same design, extracted from a .jar of the mod itself)
+/**
+ * Represents a fertilized variant of {@link FarmlandBlock} with an additional fertilizer count property.
+ * <p>
+ * The block can fertilize crop growth up to a maximum number of times, with a configurable chance per tick.
+ * </p>
+ *
+ * <p>
+ * <b>Fertilizer Effect:</b> The chance of fertilized farmland affecting crop growth is set to 35%.
+ * The maximum number of fertilizations is {@value #MAX_FERTILIZER_COUNT}.
+ * </p>
+ *
+ * <p>
+ * For crop interaction logic, see {@code FertilizedFarmlandInjection.java} in the mixin package.
+ * </p>
+ *
+ * <p>
+ * <b>References:</b>
+ * <ul>
+ *   <li>Setup tutorial: <a href="https://www.youtube.com/watch?v=Ukb3nGFFW1U&t=">YouTube</a></li>
+ * </ul>
+ * </p>
+ *
+ * @author Samit
+ * @see net.minecraft.block.FarmlandBlock
+ * @see FertilizedFarmlandInjection.java
  */
 
 package com.limitd.harvest_helpers.block.custom;
@@ -23,7 +34,7 @@ import net.minecraft.state.property.IntProperty;
 public class FertilizedFarmlandBlock extends FarmlandBlock {
     public static final int MAX_FERTILIZER_COUNT = 15;
     public static final IntProperty FERTILIZER_COUNT = IntProperty.of("fertilizer_count", 0, MAX_FERTILIZER_COUNT);
-    public static final float FERTILIZED_CHANCE = 0.50f;
+    public static final float FERTILIZED_CHANCE = 0.35f;
 
     // initialize the fertilizer count property
     public FertilizedFarmlandBlock(Settings settings) {
